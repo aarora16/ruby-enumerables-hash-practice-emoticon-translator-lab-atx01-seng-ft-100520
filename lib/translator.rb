@@ -2,14 +2,14 @@ require 'pry'
 require "yaml"
 
 
-def load_library(path)
-  @raw_data = YAML.load_file('./lib/emoticons.yml')
+def load_library(data)
+  @raw_data = YAML.load_file('emoticons.yml')
   @emoticon_names = @raw_data.keys.map! {|name| name}
   @emoticons = Hash[@emoticon_names.map {|key, value| [key, Hash.new]}]
   
   english_and_japanese(data)
-  get_japanese_emoticon(path, emoticon)
-  get_english_meaning(path, emoticon)
+  get_japanese_emoticon(data)
+  get_english_meaning(data)
 
   @emoticons
 end
@@ -22,14 +22,14 @@ def english_and_japanese(data)
 end
 
 
-def get_english_meaning(path, emoticon)
+def get_english_meaning(data)
   @emoticon_names.each do |name|
     @emoticons[name][:english] = @raw_data[name][0]
   end
 end
 
 
-def get_japanese_emoticon(path, emoticon)
+def get_japanese_emoticon(data)
   @emoticon_names.each do |name|
     @emoticons[name][:japanese] = @raw_data[name][1]
   end
