@@ -8,7 +8,7 @@ def load_library(path, emoticon)
   @emoticons = Hash[@emoticon_names.map {|key, value| [key, Hash.new]}]
   
   english_and_japanese(data)
-  get_japanese_emoticon(data)
+  get_japanese_emoticon(path, emoticons)
   get_english_meaning(data)
 
   @emoticons
