@@ -2,7 +2,7 @@ require 'pry'
 require "yaml"
 
 
-def load_library(path, emoticon)
+def load_library(path)
   @raw_data = YAML.load_file('./lib/emoticons.yml')
   @emoticon_names = @raw_data.keys.map! {|name| name}
   @emoticons = Hash[@emoticon_names.map {|key, value| [key, Hash.new]}]
