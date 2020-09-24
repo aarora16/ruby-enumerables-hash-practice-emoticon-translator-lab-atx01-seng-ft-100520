@@ -29,7 +29,7 @@ def get_english_meaning(path, emoticon)
 end
 
 
-def get_japanese_emoticon(data)
+def get_japanese_emoticon(path, emoticon)
   @emoticon_names.each do |name|
     @emoticons[name][:japanese] = @raw_data[name][1]
   end
