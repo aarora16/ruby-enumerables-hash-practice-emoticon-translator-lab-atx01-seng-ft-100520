@@ -3,7 +3,7 @@ require "yaml"
 
 
 def load_library(data)
-  @raw_data = YAML.load_file('emoticons.yml')
+  @raw_data = YAML.load_file('./lib/emoticons.yml')
   @emoticon_names = @raw_data.keys.map! {|name| name}
   @emoticons = Hash[@emoticon_names.map {|key, value| [key, Hash.new]}]
   
